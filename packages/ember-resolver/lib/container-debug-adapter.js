@@ -61,11 +61,13 @@ define("container-debug-adapter",
       for(var key in entries) {
         if(entries.hasOwnProperty(key) && key.indexOf(type) !== -1)
         {
-          // debugger
+          // TODO
 
           module = require(key, null, null, true);
 
           if (module && module['default']) { module = module['default']; }
+          module.shortname = key.split(type +'s/').pop();
+          module.shortname = key.split(type +'s/').pop();
           module.shortname = key.split(type +'s/').pop();
           // var modelClass = this.container.lookupFactory("model:" + modelname);
           module.toString = makeToString;
