@@ -49,7 +49,7 @@ test("can access Container Debug Adapter which can catalog typical entries by ty
 });
 
 test("the default ContainerDebugAdapter catalogs controller entries", function(){
-  define('appkit/controllers/foo', [ ] , function(){  return Ember.ObjectController.extend(); })
+  define('appkit/controllers/foo', [ ] , function(){  return Ember.ObjectController.extend(); });
 
 
   var controllerClasses = containerDebugAdapter.catalogEntriesByType('controller');

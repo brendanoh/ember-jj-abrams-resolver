@@ -293,7 +293,7 @@ define("container-debug-adapter",
         {
           // debugger
 
-          module = require(key, null, null, true)
+          module = require(key, null, null, true);
 
           if (module && module['default']) { module = module['default']; }
           module.fullName = key;
