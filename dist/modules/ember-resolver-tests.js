@@ -23,8 +23,8 @@ module("Container Debug Adapter Tests", {
         ContainerDebugAdapter: ContainerDebugAdapter['default']
       }).create();     
 
-      App.__container__.register('ember-container-debug-adapter:main', ContainerDebugAdapter);
-      containerDebugAdapter = App.__container__.lookup('ember-container-debug-adapter:main');
+      App.__container__.register('container-debug-adapter:main', ContainerDebugAdapter);
+      containerDebugAdapter = App.__container__.lookup('container-debug-adapter:main');
     });
   },
   teardown: function() {
@@ -55,7 +55,7 @@ test("the default ContainerDebugAdapter catalogs controller entries", function()
   var controllerClasses = containerDebugAdapter.catalogEntriesByType('controller');
 
   equal(controllerClasses.length, 1, "found 1 class");
-  equal(controllerClasses[0].fullName, 'appkit/controllers/foo', "found the right class");
+  equal(controllerClasses[0].shortname, 'foo', "found the right class");
 });
 
 })();

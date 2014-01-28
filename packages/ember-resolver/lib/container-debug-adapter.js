@@ -55,7 +55,9 @@ define("container-debug-adapter",
       var entries = requirejs.entries, 
       module,
       types = Ember.A();
-
+      var makeToString = function(){
+        return this.shortname;
+      };
       for(var key in entries) {
         if(entries.hasOwnProperty(key) && key.indexOf(type) !== -1)
         {
@@ -64,11 +66,14 @@ define("container-debug-adapter",
           module = require(key, null, null, true);
 
           if (module && module['default']) { module = module['default']; }
-          module.fullName = key;
-          types.push(module);  
+          module.shortname = key.split(type +'s/').pop();
+          // var modelClass = this.container.lookupFactory("model:" + modelname);
+          module.toString = makeToString;
+
+          types.push(module); 
         }
       }
-
+ 
       return types;
     }
   });
