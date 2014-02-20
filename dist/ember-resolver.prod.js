@@ -293,14 +293,21 @@ define("container-debug-adapter",
       for(var key in entries) {
         if(entries.hasOwnProperty(key) && key.indexOf(type) !== -1)
         {
+<<<<<<< HEAD
           // TODO
+=======
+          // debugger
+>>>>>>> cd3d784a5ba5c8e2571cd23c1c45e55004239a21
 
           module = require(key, null, null, true);
 
           if (module && module['default']) { module = module['default']; }
           module.shortname = key.split(type +'s/').pop();
+<<<<<<< HEAD
           module.shortname = key.split(type +'s/').pop();
           module.shortname = key.split(type +'s/').pop();
+=======
+>>>>>>> cd3d784a5ba5c8e2571cd23c1c45e55004239a21
           // var modelClass = this.container.lookupFactory("model:" + modelname);
           module.toString = makeToString;
 
